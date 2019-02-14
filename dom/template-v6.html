@@ -1,0 +1,30 @@
+<!-- VUE.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- v-once realiza a leitura do titulo apenas uma vez-->
+    <p v-once>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <!-- v-bind realiza a interpolacao do link no href-->
+    <a v-bind:href="link" class="href">Google</a>
+    <hr>
+    <!-- para interpretar uma html salva na DOM-->
+    <p v-html="linkHtml"></p>
+</div>
+
+<script> 
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            link: 'http://google.com.br',
+            linkHtml: '<a href="http://google.com">Google</a>'
+        },
+        methods:{
+            saudacao: function(){
+                this.titulo = 'Bom dia!!!'
+                return this.titulo
+            }
+        }
+    })
+</script>

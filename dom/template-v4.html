@@ -1,0 +1,28 @@
+<!-- VUE.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <p>{{ repeticao() }}</p>
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link" class="href">Google</a>
+</div>
+
+<script> 
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            link: 'http://google.com.br'
+        },
+        methods:{
+            repeticao(){
+                return this.titulo;
+            },
+            saudacao: function(){
+                var provisorio = 'Aloha!';
+                return provisorio;
+            }
+        }
+    })
+</script>
