@@ -1,0 +1,53 @@
+<!-- VUE.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <button v-on:click="aumentar1">Aumentar Contador1</button>
+    <button v-on:click="diminuir1">Diminuir Contador1</button>
+    <button v-on:click="aumentar2">Aumentar Contador2</button>
+    <button v-on:click="diminuir2">Diminuir Contador2</button>
+    <p>Contador: {{ contador1 }} / {{ contador2 }}</p>
+    <p>Resultado: {{ resultado }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador1: 0,
+            contador2: 0
+        },
+        computed: {
+            resultado(){
+                return this.contador1 > 5 ?
+                    'Contador1 maior que 5' : 'Contador1 menor que cinco'
+            }
+        },
+        watch: {
+            contador1(novo, antigo){
+                setTimeout(() => {
+                    this.contador1 = 0
+                }, 5000)
+            },
+            contador2(novo, antigo){
+                setTimeout(() => {
+                    this.contador2 = 0
+                }, 5000)
+            }
+        },
+        methods: {
+            aumentar1(){
+                this.contador1 ++
+            },
+            aumentar2(){
+                this.contador2 ++
+            },
+            diminuir1(){
+                this.contador1 --
+            },
+            diminuir2(){
+                this.contador2 --
+            }
+        }
+    })
+</script>
