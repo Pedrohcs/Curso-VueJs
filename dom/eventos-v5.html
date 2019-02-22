@@ -4,7 +4,12 @@
 <div id="app">
     <p>Contador = {{ contador }}</p>
     <button v-on:click='somar(5, $event)'>Somar</button>
-    <p v-on:mousemove='atualizarXY'>Mouse: {{ x }} e {{ y }}</p>
+    <p v-on:mousemove='atualizarXY'>
+        Mouse: {{ x }} e {{ y }}
+        <span v-on:mousemove.stop=''>PARAR AQUI!</span>
+    </p>
+    <hr>
+    <input type="text" v-on:keyup.enter="exibirAlerta">
 </div>
 
 <script>
@@ -23,7 +28,13 @@
             atualizarXY(event){
                 this.x = event.clientX
                 this.y = event.clientY
-            }
+            },
+            exibirAlerta(){
+              alert('Estou te alertando!')
+            },
+            // parar(event){
+            //     event.stopPropagation()
+            // }
         }
     })
 </script>
